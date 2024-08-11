@@ -10,6 +10,7 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: 'address', pathMatch: 'full' },
       { path: 'address', component: AddressComponent, data: { returnUrl: window.location.pathname } },
+      { path: 'form', component: AddressComponent },
       { path: '**', redirectTo: 'address', pathMatch: 'full' },
     ],
   },
@@ -17,6 +18,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class WeatherRoutingModule { }
+export class WeatherRoutingModule {}

@@ -16,9 +16,15 @@ export class Menu {
         },
         {
           icon: 'assets/icons/heroicons/outline/cube.svg',
+          label: 'Weather',
+          route: '/weather',
+          children: [{ label: 'Address', route: '/weather/address' }],
+        },
+        {
+          icon: 'assets/icons/heroicons/outline/cube.svg',
           label: 'Components',
           route: '/components',
-          children: [{ label: 'Table', route: '/components/table' }],
+          children: [{ label: 'Table', route: '/components/table' }, { label: 'Address', route: '/components/form' }],
         },
       ],
     },
