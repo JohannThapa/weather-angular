@@ -12,7 +12,7 @@ import { NgxSonnerToaster } from 'ngx-sonner';
   imports: [NgClass, RouterOutlet, ResponsiveHelperComponent, NgxSonnerToaster],
 })
 export class AppComponent {
-  title = 'Angular Tailwind';
+  title = 'Angular Weather API';
 
   constructor(public themeService: ThemeService) {}
 }
