@@ -45,7 +45,7 @@ export class WeatherPolarChartComponent implements AfterViewInit {
     return kelvin;
   }
   createPolarChart() {
-    this.canvas = this.polarChart.nativeElement;
+    this.canvas = this.polarChart?.nativeElement;
     this.ctx = this.canvas.getContext('2d');
     if (this.ctx && this.weatherData) {
       new Chart(this.ctx, {

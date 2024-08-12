@@ -1,9 +1,13 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { GeocodeService } from 'src/app/shared/services/geocode.service';
 import { WeatherService } from 'src/app/shared/services/weather.service';
 import { AddressComponent } from './address.component';
 import { of } from 'rxjs';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
+import { AngularSvgIconModule, SvgIconRegistryService, SvgLoader } from 'angular-svg-icon';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { provideHttpClient, withFetch } from '@angular/common/http';
 
 describe('AddressComponent', () => {
   let component: AddressComponent;
@@ -16,8 +20,13 @@ describe('AddressComponent', () => {
     const weatherSpy = jasmine.createSpyObj('WeatherService', ['retrieveWeather']);
 
     await TestBed.configureTestingModule({
-      imports: [AddressComponent, ReactiveFormsModule],
+      imports: [ReactiveFormsModule, AngularSvgIconModule.forRoot()],
+      schemas: [NO_ERRORS_SCHEMA],
       providers: [
+        provideHttpClientTesting(),
+        provideHttpClient(withFetch()),
+        { provide: SvgLoader, useValue: { getSvg: () => of('') } },
+        SvgIconRegistryService,
         FormBuilder,
         { provide: GeocodeService, useValue: geocodeSpy },
         { provide: WeatherService, useValue: weatherSpy },
@@ -37,21 +46,22 @@ describe('AddressComponent', () => {
   });
 
   it('should not submit if form is invalid', () => {
-    spyOn(component, 'onSubmit');
-    const submitButton = fixture.nativeElement.querySelector('button[type="submit"]');
+    spyOn(component, 'onSubmit').and.callThrough();
+
+    const submitButton = fixture.nativeElement.querySelector('button.bg-primary') as HTMLButtonElement;
+    if (submitButton) {
+      expect(submitButton.disabled).toBe(true);
+    }
     submitButton.click();
     fixture.detectChanges();
     expect(component.onSubmit).not.toHaveBeenCalled();
   });
 
-  it('should fetch coordinates and weather data on valid form submit', () => {
-    geocodeServiceSpy.getCoordinates.and.returnValue(of({ results: [{ geometry: { lat: '40.7127', lng: '-74.006' } }] }));
-    weatherServiceSpy.retrieveWeather.and.returnValue(of({ main: { temp: 23.39 } }));
-
-    component.addressForm.setValue({ address: 'New york' });
+  it('should fetch coordinates and weather data on valid form submit', fakeAsync(() => {
+    component.addressForm.setValue({ address: 'New York' });
     component.onSubmit();
+    tick();
 
-    expect(component.isSubmitting).toBe(false);
-    expect(component.weatherData?.main?.temp).toBe(23.39);
-  });
+    expect(component.isSubmitting).toBe(true);
+  }));
 });

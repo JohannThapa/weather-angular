@@ -2,13 +2,11 @@ import { CommonModule, NgClass } from '@angular/common';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterLink } from '@angular/router';
-import { AngularSvgIconModule } from 'angular-svg-icon';
+import { AngularSvgIconModule, SvgIconRegistryService } from 'angular-svg-icon';
 import { ButtonComponent } from 'src/app/shared/components/button/button.component';
 import { CodeComponent } from 'src/app/shared/components/code/code.component';
 import { GeocodeService } from 'src/app/shared/services/geocode.service';
 import { WeatherService } from 'src/app/shared/services/weather.service';
-import { WeatherChartsComponent } from '../weather-charts/weather-charts.component';
-import { WeatherPolarChartComponent } from '../weather-polar-chart/weather-polar-chart.component';
 import { WeatherModalComponent } from '../weather-modal/weather-modal.component';
 import { catchError, finalize, of, Subject, switchMap, takeUntil } from 'rxjs';
 import { IWeather } from 'src/app/core/models/weather.mode';
@@ -28,7 +26,7 @@ import { IWeather } from 'src/app/core/models/weather.mode';
     CodeComponent,
     WeatherModalComponent
   ],
-  providers: [GeocodeService, WeatherService],
+  providers: [GeocodeService, WeatherService, SvgIconRegistryService],
   templateUrl: './address.component.html',
   styleUrl: './address.component.scss',
 })

@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import { effect, Injectable, signal } from '@angular/core';
-import { BehaviorSubject, Observable, Subject, tap } from 'rxjs';
-import { IWeather } from 'src/app/core/models/weather.mode';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 @Injectable({

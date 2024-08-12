@@ -3,7 +3,7 @@ import packageJson from '../../../../../../package.json';
 import { MenuService } from '../../services/menu.service';
 import { RouterLink } from '@angular/router';
 import { SidebarMenuComponent } from './sidebar-menu/sidebar-menu.component';
-import { AngularSvgIconModule } from 'angular-svg-icon';
+import { AngularSvgIconModule, SvgIconRegistryService } from 'angular-svg-icon';
 import { NgClass, NgIf } from '@angular/common';
 
 @Component({
@@ -12,6 +12,8 @@ import { NgClass, NgIf } from '@angular/common';
   styleUrls: ['./sidebar.component.scss'],
   standalone: true,
   imports: [NgClass, NgIf, AngularSvgIconModule, SidebarMenuComponent, RouterLink],
+
+  providers: [SvgIconRegistryService]
 })
 export class SidebarComponent implements OnInit {
   public appJson: any = packageJson;

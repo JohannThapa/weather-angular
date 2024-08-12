@@ -3,7 +3,7 @@ import { SubMenuItem } from 'src/app/core/models/menu.model';
 import { MenuService } from '../../../services/menu.service';
 import { SidebarSubmenuComponent } from '../sidebar-submenu/sidebar-submenu.component';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-import { AngularSvgIconModule } from 'angular-svg-icon';
+import { AngularSvgIconModule, SvgIconRegistryService } from 'angular-svg-icon';
 import { NgFor, NgClass, NgTemplateOutlet, NgIf } from '@angular/common';
 
 @Component({
@@ -22,6 +22,7 @@ import { NgFor, NgClass, NgTemplateOutlet, NgIf } from '@angular/common';
         NgIf,
         SidebarSubmenuComponent,
     ],
+    providers: [SvgIconRegistryService]
 })
 export class SidebarMenuComponent implements OnInit {
   constructor(public menuService: MenuService) {}
