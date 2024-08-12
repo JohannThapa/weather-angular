@@ -1,7 +1,5 @@
 <div [ngClass]="weatherData ? 'h-full' : 'h-screen'" class="flex w-full">
-  <div *ngIf="weatherData" class="w-[600px] rounded-lg">
-    <app-code [codes]="weatherData"></app-code>
-  </div>
+  <app-code *ngIf="weatherData" [codes]="weatherData" language="json"></app-code>
   <div *ngIf="!weatherData" class="auth-bg hidden flex-1 items-center justify-center bg-primary bg-cover lg:flex">
     <div class="max-w-2xl space-y-4 p-8 text-center text-white">
       <svg-icon src="./assets/icons/map.svg" [svgClass]="'h-auto max-w-2xl text-primary'"> </svg-icon>
@@ -12,21 +10,12 @@
   </div>
   <div class="flex flex-1 items-center justify-center bg-background">
     <div class="max-w-md overflow-y-auto px-4 sm:w-[500px]">
-      <!-- logo -->
-      <div class="flex items-center justify-center">
-        <b class="text-md pl-3 font-bold text-foreground"> opencagedata </b>
-      </div>
+      <app-weather-charts [weatherData]="weatherData"></app-weather-charts>
+      <app-weather-polar-chart [weatherData]="weatherData"></app-weather-polar-chart>
       <form class="my-10 space-y-6" [formGroup]="addressForm" (ngSubmit)="onSubmit()">
         <div class="text-center">
           <h2 class="mb-1 text-3xl font-semibold text-foreground">Address <span class="text-primary">*</span></h2>
           <p class="text-sm text-muted-foreground">Let's get co-ordinates with address</p>
-        </div>
-
-        <div routerLink="/dashboard">
-          <app-button full impact="bold" tone="light" shape="rounded" size="medium">
-            <svg-icon src="assets/icons/heroicons/solid/download.svg" [svgClass]="'h-6 w-6 mr-2'"> </svg-icon>
-            Download JSON
-          </app-button>
         </div>
 
         <div
@@ -68,16 +57,15 @@
           </div>
         </div>
 
-        <div class="flex items-center justify-between space-x-3">
-          <div class="flex items-center gap-1">
-            <input id="accept-term" name="accept-term" type="checkbox" />
-            <label for="accept-term" class="ml-2 block text-sm text-muted-foreground"> Search by </label>
-            <app-button impact="none" tone="primary" shape="rounded" size="small"> Exact keyword </app-button>
-          </div>
-        </div>
 
         <div>
-          <app-button full impact="bold" tone="primary" shape="rounded" size="medium">Search</app-button>
+          <app-button full impact="bold" tone="primary" shape="rounded" size="medium">Submit</app-button>
+        </div>
+        <div (click)="downloadJSON()" *ngIf="weatherData">
+          <app-button full impact="bold" tone="light" shape="rounded" size="medium">
+            <svg-icon src="assets/icons/heroicons/solid/download.svg" [svgClass]="'h-6 w-6 mr-2'"> </svg-icon>
+            Download JSON
+          </app-button>
         </div>
       </form>
     </div>
