@@ -6,7 +6,6 @@ import { AddressComponent } from 'src/app/modules/weather/pages/address/address.
   standalone: true,
   imports: [AddressComponent],
   templateUrl: './form.component.html',
-  styleUrl: './form.component.scss'
 })
 export class FormComponent {
 

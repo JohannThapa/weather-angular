@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { IWeather } from 'src/app/core/models/weather.mode';
 import { ChartHeaderComponent } from '../chart-header/chart-header.component';
 import { WeatherInfoCardComponent } from 'src/app/shared/components/cards/weather-info-card/weather-info-card.component';
@@ -11,15 +11,19 @@ import { WeatherPolarChartComponent } from '../weather-polar-chart/weather-polar
   standalone: true,
   imports: [CommonModule, ChartHeaderComponent, WeatherInfoCardComponent, WeatherChartsComponent, WeatherPolarChartComponent],
   templateUrl: './weather-modal.component.html',
-  styleUrl: './weather-modal.component.scss'
 })
 export class WeatherModalComponent {
 
   @Input() isVisible: boolean = false;
   @Input() weatherData: IWeather | undefined;
+  @Output() closeModalEvent = new EventEmitter<void>();
+
+
   closeModal() {
     this.isVisible = false;
+    this.closeModalEvent.emit();
   }
+
   downloadJSON() {
     const dataStr = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(this.weatherData));
     const downloadAnchorNode = document.createElement('a');

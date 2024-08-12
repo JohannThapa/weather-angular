@@ -14,23 +14,9 @@ import { WeatherService } from 'src/app/shared/services/weather.service';
   styleUrl: './weather.component.scss',
 })
 export class WeatherComponent implements OnInit {
-  weatherData: IWeather[] = [];
-  constructor(private weatherService: WeatherService) {}
+
+  constructor() {}
 
   ngOnInit(): void {
-    this.weatherService.getWeather().subscribe(data => {
-      this.weatherData = data;
-      console.log('weatherData', this.weatherData);
-
-    });
-    this.weatherService.getWeather().subscribe({
-      next: (data) => {
-        this.weatherData = data;
-        console.log('weatherData', this.weatherData);
-      },
-      error: () => {
-        console.log('Failed to receive weather data');
-      },
-    });
   }
 }

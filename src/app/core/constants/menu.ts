@@ -13,7 +13,7 @@ export class Menu {
           children: [ { label: 'Address', route: '/components/form' }],
         },
         {
-          icon: 'assets/icons/heroicons/outline/cube.svg',
+          icon: 'assets/icons/heroicons/outline/expand.svg',
           label: 'Full Page',
           route: '/weather',
           children: [{ label: 'Address', route: '/weather/address' }],

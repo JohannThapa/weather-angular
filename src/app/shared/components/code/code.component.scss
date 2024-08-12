@@ -1,5 +1,6 @@
 :host{
-  width: 50%;
+  @apply w-full;
+  @apply md:w-1/2;
 }
 pre {
   margin: 0;
