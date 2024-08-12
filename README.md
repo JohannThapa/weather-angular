@@ -2,8 +2,6 @@
 
 Simple Weather application made from Angular 18 framework with TailwindCSS
 
--
-
 ## Installation
 
 Install `pnpm` sing `npm`
@@ -42,7 +40,6 @@ pnpm install
 | :-------- | :------- | :-------------------------------- |
 | `openCageApiKey`      | `string` | **Required**. opencagedata API key |
 
--
 
 ## Tech Stack
 
@@ -50,7 +47,6 @@ pnpm install
 
 **API:** OpenWeather, OpenCageData
 
--
 
 ## Features
 
@@ -60,9 +56,6 @@ pnpm install
 - Cross platform
 - Responsive
 
--
-
-
 ## Running Tests
 
 To run tests, run the following command
@@ -71,13 +64,10 @@ To run tests, run the following command
   ng test
 ```
 
--
-
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
 
--
 
 ## Screenshots
 
