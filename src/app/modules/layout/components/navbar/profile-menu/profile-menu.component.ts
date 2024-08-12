@@ -43,9 +43,8 @@ export class ProfileMenuComponent implements OnInit {
       title: 'Settings',
       icon: './assets/icons/heroicons/outline/cog-6-tooth.svg',
       link: '/settings',
-    }
+    },
   ];
-
 
   public themeColors = COLORS;
 

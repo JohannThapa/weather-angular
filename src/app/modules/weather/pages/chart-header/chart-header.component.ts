@@ -6,6 +6,4 @@ import { Component } from '@angular/core';
   imports: [],
   templateUrl: './chart-header.component.html',
 })
-export class ChartHeaderComponent {
-
-}
+export class ChartHeaderComponent {}

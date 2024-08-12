@@ -13,7 +13,7 @@ import { NgClass, NgIf } from '@angular/common';
   standalone: true,
   imports: [NgClass, NgIf, AngularSvgIconModule, SidebarMenuComponent, RouterLink],
 
-  providers: [SvgIconRegistryService]
+  providers: [SvgIconRegistryService],
 })
 export class SidebarComponent implements OnInit {
   public appJson: any = packageJson;

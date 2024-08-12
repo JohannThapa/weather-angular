@@ -10,7 +10,7 @@ export class Menu {
           icon: 'assets/icons/heroicons/outline/cube.svg',
           label: 'Components',
           route: '/components',
-          children: [ { label: 'Address', route: '/components/form' }],
+          children: [{ label: 'Address', route: '/components/form' }],
         },
         {
           icon: 'assets/icons/heroicons/outline/expand.svg',

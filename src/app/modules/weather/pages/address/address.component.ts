@@ -11,7 +11,6 @@ import { WeatherModalComponent } from '../weather-modal/weather-modal.component'
 import { catchError, finalize, of, Subject, switchMap, takeUntil } from 'rxjs';
 import { IWeather } from 'src/app/core/models/weather.mode';
 
-
 @Component({
   selector: 'app-address',
   standalone: true,
@@ -24,7 +23,7 @@ import { IWeather } from 'src/app/core/models/weather.mode';
     AngularSvgIconModule,
     ButtonComponent,
     CodeComponent,
-    WeatherModalComponent
+    WeatherModalComponent,
   ],
   providers: [GeocodeService, WeatherService, SvgIconRegistryService],
   templateUrl: './address.component.html',
@@ -50,33 +49,35 @@ export class AddressComponent implements OnInit, OnDestroy {
     });
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
   onSubmit() {
     if (this.addressForm.valid) {
       this.isSubmitting = true;
       const address = this.addressForm.get('address')?.value;
-      this.geocodingService.getCoordinates(address).pipe(
-        switchMap((data) => {
-          const coords = data.results[0].geometry;
-          this.latitude = coords.lat;
-          this.longitude = coords.lng;
-          return this.weatherService.retrieveWeather(coords.lat, coords.lng);
-        }),
-        catchError((error) => {
-          console.error('Error fetching data:', error);
-          this.error = 'Failed to fetch data';
-          return of(null);
-        }),
-        finalize(() => this.isSubmitting = false),
-        takeUntil(this.destroy$)
-      ).subscribe({
-        next: (weather) => {
-          if (weather) {
-            this.weatherData = weather;
-          }
-        }
-      });
+      this.geocodingService
+        .getCoordinates(address)
+        .pipe(
+          switchMap((data) => {
+            const coords = data.results[0].geometry;
+            this.latitude = coords.lat;
+            this.longitude = coords.lng;
+            return this.weatherService.retrieveWeather(coords.lat, coords.lng);
+          }),
+          catchError((error) => {
+            console.error('Error fetching data:', error);
+            this.error = 'Failed to fetch data';
+            return of(null);
+          }),
+          finalize(() => (this.isSubmitting = false)),
+          takeUntil(this.destroy$),
+        )
+        .subscribe({
+          next: (weather) => {
+            if (weather) {
+              this.weatherData = weather;
+            }
+          },
+        });
     }
   }
   openModal() {

@@ -8,7 +8,7 @@ import { IWeather } from 'src/app/core/models/weather.mode';
   standalone: true,
   imports: [NgStyle, CommonModule, AngularSvgIconModule, NgClass],
   templateUrl: './weather-info-card.component.html',
-  styleUrl: './weather-info-card.component.scss'
+  styleUrl: './weather-info-card.component.scss',
 })
 export class WeatherInfoCardComponent {
   @Input() weather: IWeather | undefined = <IWeather | undefined>{};

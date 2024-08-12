@@ -6,7 +6,7 @@ import { Component, Input } from '@angular/core';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './code.component.html',
-  styleUrl: './code.component.scss'
+  styleUrl: './code.component.scss',
 })
 export class CodeComponent {
   @Input() codes: any;
@@ -16,10 +16,13 @@ export class CodeComponent {
   }
 
   copyToClipboard() {
-    navigator.clipboard.writeText(this.formattedCode).then(() => {
-      alert('Code copied to clipboard!');
-    }, (err) => {
-      console.error('Could not copy text: ', err);
-    });
+    navigator.clipboard.writeText(this.formattedCode).then(
+      () => {
+        alert('Code copied to clipboard!');
+      },
+      (err) => {
+        console.error('Could not copy text: ', err);
+      },
+    );
   }
 }

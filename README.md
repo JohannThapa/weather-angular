@@ -18,6 +18,22 @@ install packages
 pnpm install
 ```
 
+run application
+
+```bash
+ng serve
+```
+
+## Environment Variables
+
+To run this project, you will need to add the following environment variables to your environment.ts file
+
+`openWeatherApiKey`
+
+`openCageApiKey`
+
+
+
 ## API Reference
 
 ### OpenWeather API
@@ -64,6 +80,14 @@ To run tests, run the following command
   ng test
 ```
 
+## Running Prettier
+
+To run prettier, run the following command
+
+```bash
+  pnpm run prettier
+```
+
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
@@ -71,5 +95,9 @@ To run tests, run the following command
 
 ## Screenshots
 
-![App Screenshot]()
 
+![Address Form](https://github.com/user-attachments/assets/39180a83-122e-4634-90c3-ba9410245f86)
+
+![Charts](https://github.com/user-attachments/assets/57621d83-6fd2-46dd-a106-2a337aa3b8dc)
+
+![Dark Mode](https://github.com/user-attachments/assets/8dadbf0e-d973-44d2-9f2e-a54575bc2118)

@@ -14,9 +14,7 @@ import { WeatherService } from 'src/app/shared/services/weather.service';
   styleUrl: './weather.component.scss',
 })
 export class WeatherComponent implements OnInit {
-
   constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 }

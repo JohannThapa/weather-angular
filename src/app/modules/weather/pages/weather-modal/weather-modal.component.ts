@@ -9,15 +9,19 @@ import { WeatherPolarChartComponent } from '../weather-polar-chart/weather-polar
 @Component({
   selector: 'app-weather-modal',
   standalone: true,
-  imports: [CommonModule, ChartHeaderComponent, WeatherInfoCardComponent, WeatherChartsComponent, WeatherPolarChartComponent],
+  imports: [
+    CommonModule,
+    ChartHeaderComponent,
+    WeatherInfoCardComponent,
+    WeatherChartsComponent,
+    WeatherPolarChartComponent,
+  ],
   templateUrl: './weather-modal.component.html',
 })
 export class WeatherModalComponent {
-
   @Input() isVisible: boolean = false;
   @Input() weatherData: IWeather | undefined;
   @Output() closeModalEvent = new EventEmitter<void>();
-
 
   closeModal() {
     this.isVisible = false;

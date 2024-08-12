@@ -47,7 +47,14 @@
         </div>
 
         <div>
-          <app-button id="submit" full impact="bold" tone="primary" shape="rounded" size="medium" [disabled]="addressForm.invalid">
+          <app-button
+            id="submit"
+            full
+            impact="bold"
+            tone="primary"
+            shape="rounded"
+            size="medium"
+            [disabled]="addressForm.invalid">
             <svg-icon
               *ngIf="isSubmitting"
               src="assets/icons/heroicons/outline/arrow-circle.svg"
