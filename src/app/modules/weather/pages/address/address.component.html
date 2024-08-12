@@ -70,7 +70,7 @@
   </div>
   <div class="flex-1">
     <app-code *ngIf="weatherData" [codes]="weatherData" language="json"></app-code>
-    <div *ngIf="!weatherData" class="auth-bg hidden flex-1 items-center justify-center bg-primary bg-cover lg:flex">
+    <div *ngIf="!weatherData" class="auth-bg hidden flex-1 items-center h-full justify-center bg-primary bg-cover lg:flex">
       <div class="max-w-2xl space-y-4 p-8 text-center text-white">
         <svg-icon src="./assets/icons/map.svg" [svgClass]="'h-auto max-w-2xl text-primary'"> </svg-icon>
         <h1 class="text-4xl font-bold">"Weather data in JSON"</h1>
