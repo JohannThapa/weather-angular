@@ -95,9 +95,8 @@ To run prettier, run the following command
 
 ## Screenshots
 
-
 ![Address Form](https://github.com/user-attachments/assets/39180a83-122e-4634-90c3-ba9410245f86)
 
-![Charts](https://github.com/user-attachments/assets/57621d83-6fd2-46dd-a106-2a337aa3b8dc)
+![Charts](https://github.com/user-attachments/assets/ad13166f-16b1-48fb-9748-97ca4a43fba1)
 
-![Dark Mode](https://github.com/user-attachments/assets/8dadbf0e-d973-44d2-9f2e-a54575bc2118)
+![Dark Mode](https://github.com/user-attachments/assets/f14d341f-3f87-4a67-b27d-34fb1e072eda)
