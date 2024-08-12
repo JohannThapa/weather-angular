@@ -3,9 +3,9 @@ import { NgModule } from '@angular/core';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 
 import { LayoutRoutingModule } from './layout-routing.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CommonModule } from '@angular/common';
 @NgModule({
-  imports: [LayoutRoutingModule, BrowserAnimationsModule, AngularSvgIconModule.forRoot()],
+  imports: [LayoutRoutingModule, CommonModule, AngularSvgIconModule.forRoot()],
   providers: [provideHttpClient(withInterceptorsFromDi())],
 })
 export class LayoutModule {}
