@@ -4,6 +4,7 @@ import { AngularSvgIconModule } from 'angular-svg-icon';
 import { IWeather } from 'src/app/core/models/weather.mode';
 
 @Component({
+  // eslint-disable-next-line @angular-eslint/component-selector
   selector: '[weather-info-card]',
   standalone: true,
   imports: [NgStyle, CommonModule, AngularSvgIconModule, NgClass],
