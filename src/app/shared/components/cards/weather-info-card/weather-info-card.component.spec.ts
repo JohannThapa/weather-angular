@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TableHeaderComponent } from './table-header.component';
+import { WeatherInfoCardComponent } from './weather-info-card.component';
 
-describe('TableHeaderComponent', () => {
-  let component: TableHeaderComponent;
-  let fixture: ComponentFixture<TableHeaderComponent>;
+describe('WeatherInfoCardComponent', () => {
+  let component: WeatherInfoCardComponent;
+  let fixture: ComponentFixture<WeatherInfoCardComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TableHeaderComponent]
+      imports: [WeatherInfoCardComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(TableHeaderComponent);
+    fixture = TestBed.createComponent(WeatherInfoCardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
